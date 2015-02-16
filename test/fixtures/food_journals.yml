@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  food: MyText
+  qty: 1
+  cals: 1
+  fat: 1
+  carbs: 1
+  protein: 1
+
+two:
+  food: MyText
+  qty: 1
+  cals: 1
+  fat: 1
+  carbs: 1
+  protein: 1

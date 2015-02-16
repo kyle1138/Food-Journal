@@ -1,0 +1,31 @@
+<input id="foodToFind" placeholder="food item"/>
+  <button id="get"> Find </button>
+  <div id="menuContaier">
+    <ul id="menu">
+
+    </ul>
+
+  </div>
+  <div id="svgContainer">
+
+    <svg width="500" height = "500">
+
+
+
+    </svg>
+    Amount in grams<input type="number" id="qty" placeholder="0" min="0">
+    <button id="create">click to add this food to your diary</button>
+  </div>
+
+
+<h3><%=@user.handle%></h3>
+
+<% total_cals = 0
+@foods.each do |food|
+  total_cals = total_cals + food.cals %>
+<h4><%=food.food%> calories: <%= food.cals %> </h4>
+<h5><%=total_cals%></h5>
+<script charset="utf-8">
+var user = <%= @user.id %>;
+</script>
+<% end %>
