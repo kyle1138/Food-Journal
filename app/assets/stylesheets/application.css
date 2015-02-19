@@ -13,3 +13,71 @@
  *= require_tree .
  *= require_self
  */
+
+ body{
+   background:#fefefe url('cell-blue.jpg');
+   font-family: verdana,arial,sans-serif;
+   font-size:14px;
+ }
+ div{
+   display: block;
+   float: left;
+ }
+
+
+
+ table.gridtable {
+   font-family: arial,sans-serif;
+   font-size:14px;
+   color:#333333;
+   border-width: 2px;
+   border-color: #ffffff;
+   border-collapse: collapse;
+   text-align: center;
+ }
+ table.gridtable th {
+   background:#292;
+   border-width: 2px;
+   padding: 8px;
+   border-style: solid;
+   border-color: #ffffff;
+   color: #efefef;
+ }
+ table.gridtable td {
+   background:#dceeee;
+   border-width: 0px 1px;
+   padding: 8px;
+   border-style: solid;
+   border-color: #ffffff;
+ }
+
+ #menuContainer{
+   height: 300px;
+   width: 300px;
+   overflow:auto;
+   border:2px solid #aaa;
+   background-color: #cdcdcd;
+   background:#dceeee;
+   border-width: 1px;
+   padding: 8px;
+   border-style: solid;
+   border-color: #ccc;
+
+ }
+ #bttm{
+   float: down;
+ }
+ ul{
+   background:#dceeee;
+   border-width: 0px 1px;
+   padding: 8px;
+   border-style: solid;
+   border-color: #ffffff;
+ }
+
+ li{
+   list-style-type: none;
+   font-size:14px;
+
+
+ }

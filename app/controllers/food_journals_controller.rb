@@ -18,23 +18,39 @@ class FoodJournalsController < ApplicationController
       #   :created_at => today} )
   end
 
+
   def show
+    urlOne = "https://api.nutritionix.com/v1_1/search/";
+    urlTwo = "?item_type=3&results=0%3A20&cal_min=0&cal_max=5000&fields=item_name%2Cnf_dietary_fiber%2Cbrand_name%2Cnf_calories%2Cnf_serving_size_qty%2Cnf_serving_size_unit%2Cnf_total_fat%2Cnf_total_carbohydrate%2Cnf_protein%2Cnf_serving_weight_grams%2Citem_id%2Cbrand_id&appId=bdcc47ce&appKey=e53cc81b43727bf30f6ffb0a54ab80a8"
+
+    food = (params[:food])
+    foodsNutrix = HTTParty.get(urlOne + URI.encode(food) + urlTwo)
     @user = User.find_by(id: params[:id])
     @foods = @user.food_journals
 
+		    respond_to do |format|
+
+
+	         format.json { render json: foodsNutrix }
+	     end
+
   end
+
 
   def destroy
     @food = FoodJournal.find_by(id: params[:id])
     @food.destroy
-    puts params[:date]
-    if Date.parse(params[:date])
+    if params[:date] != ''
       @the_date = Date.parse(params[:date])
       redirect_to '/food_journals?date=' + @the_date.to_s
     else
-      redirect_to "/"
+      redirect_to edit_user_path
     end
   end
+
+
+
+
 
   def create
 
@@ -62,9 +78,11 @@ class FoodJournalsController < ApplicationController
     @foods = [@food]
   end
 
+
   private
     def food_params
       params.require(:food_journal).permit(:food , :qty, :cals, :fat, :carbs, :protein, :user_id )
     end
+
 
 end

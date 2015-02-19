@@ -15,6 +15,12 @@
   var calPie = [0,0,0,33]
   </script>
 </head>
+
+<body>
+
+  <header>
+
+
 <% if session[:user_id] %>
 <h3><%= @user.handle %></h3>
 <%= link_to 'profile', edit_user_path(@user) if @user%>
@@ -44,7 +50,8 @@ Already a member?
 </form>
 <%= link_to 'Register a new user', new_user_path %>
 <% end %>
-<body>
+</header>
+
   <em>layout application.html.erb</em>
   <hr>
 <%= yield %>

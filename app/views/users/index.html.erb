@@ -25,15 +25,19 @@ calPie = [<%= total_pro_cals %>,<%= total_carb_cals %>,<%= total_fat_cals %>];
 
 <input id="foodToFind" placeholder="food item"/>
   <button id="get"> Find </button>
-  <div id="menuContaier">
+  <div id="menuContainer">
     <ul id="menu">
 
     </ul>
 
   </div>
-  <h3>Daily calorie goal: <%= @user.target if @user%></h3>
-  <h3>Today's caloric intake: <%=total_cals%></h5>
-    <h3>remaining calories: <%= @user.target - total_cals if @user%></h5>
+    <div id="status">
+
+      <h3>Daily calorie goal: <%= @user.target if @user%></h3>
+      <h3>Today's caloric intake: <%=total_cals%></h3>
+      <h3>remaining calories: <%= @user.target - total_cals if @user%></h3>
+
+    </div>
   <div id="svgContainer">
 
     <svg width="420" height = "400">
@@ -67,5 +71,9 @@ calPie = [<%= total_pro_cals %>,<%= total_carb_cals %>,<%= total_fat_cals %>];
   <%= render "layouts/food" %>
 
 </div>
+<div id="bottom">
+
+
 <%= link_to 'food diary', food_journals_path + '?date=' + Date.today.to_s if @user %>
 <%= link_to 'user profile', edit_user_path(@user) if @user%>
+</div>

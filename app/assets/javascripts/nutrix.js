@@ -28,8 +28,9 @@ get.addEventListener("click" , function(){
   var item = encodeURI(foodToFind.value);
   // itemRequest["query"] = item;
   console.log(item);
+  var railsUrl = "/food_journals/5?food=" + item;
   var url = urlOne + item + urlTwo;
-  xhr.open("GET" , url);
+  xhr.open("GET" , railsUrl);
   xhr.addEventListener("load" , function(){
     var menuCounter = 0;
     menu.innerHTML = "";
@@ -42,7 +43,7 @@ get.addEventListener("click" , function(){
       console.log(hit["fields"]["item_name"]);
       var hitLi = document.createElement("li");
       hitLi.id = "menuItem" + menuCounter;
-      hitLi.innerText = hit["fields"]["item_name"];
+      hitLi.innerHTML = hit["fields"]["item_name"] + '<hr>';
       menu.appendChild(hitLi);
       hitEvent = document.getElementById("menuItem" + menuCounter);
       hitEvent.addEventListener("click" , function(){

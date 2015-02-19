@@ -1,26 +1,26 @@
 <em>_food.html.erb</em>
 <div id="foods">
-  <table>
+  <table class="gridtable">
 
   <tr>
-    <td>
+    <th>
       Food Item
-    </td>
-    <td>
+    </th>
+    <th>
       Serving in grams
-    </td>
-    <td>
+    </th>
+    <th>
       Calories
-    </td>
-    <td>
+    </th>
+    <th>
       Calories from Fat
-    </td>
-    <td>
+    </th>
+    <th>
       Calories from Protein
-    </td>
-    <td>
+    </th>
+    <th>
       Calories from Carbs
-    </td>
+    </th>
 
   </tr>
   <%
@@ -59,7 +59,7 @@
         <%= link_to 'update qty' , edit_food_journal_path(food)%>
       </td>
       <td>
-        <%= link_to 'delete entry' , 'food_journals/' + food.id.to_s + '?date=' + @the_date.to_s, method: :delete %>
+        <%= link_to 'delete entry' , food_journal_path(food) + '?date=' + @the_date.to_s , method: :delete %>
       </td>
     </tr>
 
@@ -96,18 +96,18 @@ end%>
       <td>
 
       </td>
-      <td>
+      <th>
         Total Calories
-      </td>
-      <td>
+      </th>
+      <th>
         Total Calories from Fat
-      </td>
-      <td>
+      </th>
+      <th>
         Total Calories from Protein
-      </td>
-      <td>
+      </th>
+      <th>
         Total Calories from Carbs
-      </td>
+      </th>
     </tr>
     <tr>
       <td>
