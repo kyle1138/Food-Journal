@@ -1,3 +1,5 @@
+<em>session new.html.erb</em>
+
 <form action = "/session" method = "POST">
   <label for = "username">
     Username
@@ -7,6 +9,57 @@
     Password:
   </label>
   <input name = "password" type = "password">
+  <input name = "authenticity_token" value = "<%= form_authenticity_token() %>"
+    type = "hidden">
+<button>Sign In</button>
+</form>
+<br>
+
+Register New User
+
+<%= form_for @user, url: {action: 'create'} do |f|%>
+  <%= f.label :username%>
+  <%= f.text_field :handle%>
+  <br>
+  <%= f.label :password%>
+  <%= f.password_field :password%>
+  <br>
+  <%= f.label :confirm_password%>
+  <%= f.password_field :confirm_password%>
+  <br>
+  <%= radio_button_tag(:male, true) %>
+  <%= label_tag(:gender_male, "Male")%>
+  <%= radio_button_tag(:male, false) %>
+  <%= label_tag(:gender_male, "Female")%>
+  <br>
+  <%= f.label :age%>
+  <%= f.number_field :age%>
+  <br>
+  <%= f.label :weight%>
+  <%= f.number_field :weight%>
+  <br>
+  <%= f.submit %>
+<% end %>
+
+<form action = "/session" method = "POST">
+  <label for = "username">
+    Username
+  </label>
+  <input name = "username" type = "text">
+  <label for = "password">
+    Password:
+  </label>
+  <input name = "password" type = "password">
+  male:<input type="radio" name="male" value="true">
+  female:<input type="radio" name="male" value="false">
+  <lable for = "weight">
+    Weight:
+  </lable>
+  <input name = "weight" type = "number" min="0">
+  <lable for = "age">
+    Age:
+  </lable>
+  <input name = "age" type = "number" min="0">
   <input name = "authenticity_token" value = "<%= form_authenticity_token() %>"
     type = "hidden">
 <button>Sign In</button>

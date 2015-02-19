@@ -5,22 +5,61 @@ class FoodJournalsController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
   def index
-    @foods = FoodJournal.all
+    @display_date = Date.parse(params[:date]).strftime("%m/%d/%Y")
+    @the_date = Date.parse(params[:date])
+    @user = User.find_by(id: session[:user_id])
+    @foods = @user.food_journals.where(date: @the_date.beginning_of_day..@the_date.end_of_day)
+
+      # @foods = FoodJournal.where(:user_id => session[:user_id], created_at: Time.now.midnight..(Time.now.midnight + 1.day))
+
+      # @foods = FoodJournal.where(:all,
+      # :conditions => {
+      #   :user_id => session[:user_id],
+      #   :created_at => today} )
   end
 
   def show
     @user = User.find_by(id: params[:id])
     @foods = @user.food_journals
+
+  end
+
+  def destroy
+    @food = FoodJournal.find_by(id: params[:id])
+    @food.destroy
+    puts params[:date]
+    if Date.parse(params[:date])
+      @the_date = Date.parse(params[:date])
+      redirect_to '/food_journals?date=' + @the_date.to_s
+    else
+      redirect_to "/"
+    end
   end
 
   def create
-    puts food_params
+
     @food = FoodJournal.create(food_params)
     if @food.save
-      render json @food
+
+      if params[:date]
+        @food.update(date: Date.parse(params[:date]).noon)
+        redirect_to '/food_journals?date=' + Date.parse(params[:date]).to_s
+      else
+        @the_date = Date.today
+        @food.update(date: @the_date)
+        @foods = FoodJournal.where(:user_id => session[:user_id], date: Date.today.beginning_of_day..Date.today.end_of_day)
+        render :file => "layouts/_food", :layout => false
+      end
+
     else
       render status: 400, nothing: true
     end
+  end
+
+  def edit
+    @user = User.find_by(id: session[:user_id])
+    @food = FoodJournal.find_by(id: params[:id])
+    @foods = [@food]
   end
 
   private

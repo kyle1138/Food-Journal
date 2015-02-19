@@ -2,12 +2,13 @@ Rails.application.routes.draw do
 
   resources :users
   resources :food_journals
+  resources :layouts
   root "users#index"
-  get '/login' => 'session#new'
+  get '/register' => 'users#new'
   post '/session' => 'session#create'
   delete '/session' => 'session#destroy'
-
-  get '/secret' => 'secret#show'
+  #
+  # get '/secret' => 'secret#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

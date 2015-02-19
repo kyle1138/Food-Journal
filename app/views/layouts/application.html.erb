@@ -6,10 +6,47 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
   <%= csrf_meta_tags %>
+  <script>
+  <% if @user %>
 
+  var user = <%= @user.id %>;
+
+  <% end %>
+  var calPie = [0,0,0,33]
+  </script>
 </head>
-<body>
+<% if session[:user_id] %>
+<h3><%= @user.handle %></h3>
+<%= link_to 'profile', edit_user_path(@user) if @user%>
+  <form method="POST" action="/session">
+    <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+    <input name="_method" value="DELETE" type="hidden">
+<button>Sign Out</button>
+<br>
+</form>
+<% else %>
+Already a member?
+<form action = "/session" method = "POST">
+  <label for = "username">
+    Username
+  </label>
+  <input name = "username" type = "text">
+  <label for = "password">
+    Password:
+  </label>
+  <input name = "password" type = "password">
+  <input name = "authenticity_token" value = "<%= form_authenticity_token() %>"
+    type = "hidden">
+<button>Sign In</button><br>
 
+
+
+</form>
+<%= link_to 'Register a new user', '/register' %>
+<% end %>
+<body>
+  <em>layout application.html.erb</em>
+  <hr>
 <%= yield %>
 
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

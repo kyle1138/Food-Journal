@@ -1,0 +1,44 @@
+<em>users show.html.erb</em>
+
+
+<script>
+var user = <%= @user.id %>;
+</script>
+
+<%= form_for @user, url: {action: 'update'} do |f|%>
+  <%= f.label :username%>
+  <%= f.text_field :handle%>
+
+  <br>
+  <%= f.radio_button(:male, true) %>
+  <%= f.label(:gender_male, "Male")%>
+  <%= f.radio_button(:male, false) %>
+  <%= f.label(:gender_male, "Female")%>
+  <br>
+  <%= f.label :age%>
+  <%= f.number_field :age%>
+  <br>
+  <%= f.label :weight_in_lbs%>
+  <%= f.number_field :weight%>
+  <br>
+  <%= f.label :goal_weight%>
+  <%= f.number_field :goal%>
+  <br>
+  <%= f.label :target_calories%>
+  <%= f.number_field :target%>
+  <% if (@user.goal && @user.height) && @user.age
+    maint = (66 + ( 6.23 * @user.weight) + ( 12.7 * @user.height ) - ( 6.8 * @user.age )) * 1.2
+  end
+  %>
+  Your maintenance caloric needs are <%= maint.to_i %>
+  <br>
+  <%= f.label :height_in_inches%>
+  <%= f.number_field :height%>
+  <br>
+  <%= f.submit %>
+<% end %>
+
+
+<%= render "layouts/food" %>
+
+<h3><%=@user.handle%> id: <%=@user.id%></h3>

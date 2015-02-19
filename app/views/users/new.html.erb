@@ -1,0 +1,30 @@
+<em>users new.html.erb</em>
+Register New User
+
+
+<%= form_for @user, url: {action: 'create'} do |f|%>
+  <%= f.label :username%>
+  <%= f.text_field :handle%>
+  <br>
+  <%= f.label :password%>
+  <%= f.password_field :password%>
+  <br>
+  <%= f.label :confirm_password%>
+  <%= f.password_field :confirm_password%>
+  <br>
+  <%= f.radio_button(:male, true) %>
+  <%= f.label(:gender_male, "Male")%>
+  <%= f.radio_button(:male, false) %>
+  <%= f.label(:gender_male, "Female")%>
+  <br>
+  <%= f.label :age%>
+  <%= f.number_field :age%>
+  <br>
+  <%= f.label :weight%>
+  <%= f.number_field :weight%>
+  <br>
+  <%= f.label :target_calories%>
+  <%= f.number_field :target%>
+  <br>
+  <%= f.submit %>
+<% end %>

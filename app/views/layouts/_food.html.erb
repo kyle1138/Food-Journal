@@ -1,0 +1,138 @@
+<em>_food.html.erb</em>
+<div id="foods">
+  <table>
+
+  <tr>
+    <td>
+      Food Item
+    </td>
+    <td>
+      Serving in grams
+    </td>
+    <td>
+      Calories
+    </td>
+    <td>
+      Calories from Fat
+    </td>
+    <td>
+      Calories from Protein
+    </td>
+    <td>
+      Calories from Carbs
+    </td>
+
+  </tr>
+  <%
+
+  total_cals = 0
+  total_fat = 0
+  total_pro = 0
+  total_carbs = 0
+  if @foods
+  @foods.each do |food|
+
+    total_cals += food.cals
+    total_fat = total_fat + food.fat
+    total_carbs = total_carbs + food.carbs
+    total_pro = total_pro + food.protein %>
+    <tr>
+      <td>
+        <%=food.food%>
+      </td>
+      <td>
+        <%= food.qty %>
+      </td>
+      <td>
+        <%= food.cals %>
+      </td>
+      <td>
+        <%= food.fat %>
+      </td>
+      <td>
+        <%= food.protein %>
+      </td>
+      <td>
+        <%= food.carbs %>
+      </td>
+      <td>
+        <%= link_to 'update qty' , edit_food_journal_path(food)%>
+      </td>
+      <td>
+        <%= link_to 'delete entry' , 'food_journals/' + food.id.to_s + '?date=' + @the_date.to_s, method: :delete %>
+      </td>
+    </tr>
+
+
+
+  <% end
+end%>
+  <tr>
+    <td>
+
+    </td>
+    <td>
+
+    </td>
+    <td>
+
+    </td>
+    <td>
+
+    </td>
+    <td>
+
+    </td>
+    <td>
+
+    </td>
+  </tr>
+  <br>
+
+    <tr>
+      <td>
+
+      </td>
+      <td>
+
+      </td>
+      <td>
+        Total Calories
+      </td>
+      <td>
+        Total Calories from Fat
+      </td>
+      <td>
+        Total Calories from Protein
+      </td>
+      <td>
+        Total Calories from Carbs
+      </td>
+    </tr>
+    <tr>
+      <td>
+
+      </td>
+      <td>
+
+      </td>
+      <td>
+        <%=total_cals%>
+      </td>
+      <td>
+        <%=total_fat%>
+      </td>
+      <td>
+        <%=total_pro%>
+      </td>
+      <td>
+        <%=total_carbs%>
+      </td>
+    </tr>
+
+  </table>
+  <br>
+
+
+
+</div>
