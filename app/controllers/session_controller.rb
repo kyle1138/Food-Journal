@@ -9,7 +9,7 @@ class SessionController < ApplicationController
       session[:user_id] = @user.id
       redirect_to '/'
     else
-      redirect_to "users/new"
+      redirect_to new_user_path
     end
   end
 
