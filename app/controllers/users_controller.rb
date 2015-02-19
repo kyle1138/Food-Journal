@@ -46,6 +46,8 @@ class UsersController < ApplicationController
     if session[:user_id]
       @user = User.find_by(id: session[:user_id])
       @foods = @user.food_journals
+    else
+      redirect_to '/'
     end
   end
 
