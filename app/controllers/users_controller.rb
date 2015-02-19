@@ -22,6 +22,9 @@ class UsersController < ApplicationController
 
 
   def new
+    if session
+      redirect_to '/'
+    end
     @user = User.new
   end
 

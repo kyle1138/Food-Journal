@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :food_journals
   resources :layouts
   root "users#index"
-  get '/register' => 'users#new'
+  # get '/register' => 'users#new'
   post '/session' => 'session#create'
   delete '/session' => 'session#destroy'
   #
