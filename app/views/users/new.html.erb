@@ -1,30 +1,66 @@
-<em>users new.html.erb</em>
-Register New User
+
+<h3>Register New User</h3>
 
 
 <%= form_for @user, url: {action: 'create'} do |f|%>
-  <%= f.label :username%>
-  <%= f.text_field :handle%>
-  <br>
-  <%= f.label :password%>
-  <%= f.password_field :password%>
-  <br>
-  <%= f.label :confirm_password%>
-  <%= f.password_field :confirm_password%>
-  <br>
-  <%= f.radio_button(:male, true) %>
-  <%= f.label(:gender_male, "Male")%>
-  <%= f.radio_button(:male, false) %>
-  <%= f.label(:gender_male, "Female")%>
-  <br>
-  <%= f.label :age%>
-  <%= f.number_field :age%>
-  <br>
-  <%= f.label :weight%>
-  <%= f.number_field :weight%>
-  <br>
-  <%= f.label :target_calories%>
-  <%= f.number_field :target%>
-  <br>
-  <%= f.submit %>
+<table>
+
+<tr>
+
+
+  <td><%= f.label :username%></td>
+  <td><%= f.text_field :handle%></td>
+
+</tr>
+<tr>
+
+
+<td><%= f.label :password%></td>
+
+<td><%= f.password_field :password%></td>
+
+</tr><tr>
+
+  <td><%= f.label :confirm_password%></td>
+  <td><%= f.password_field :confirm_password%></td>
+
+</tr><tr>
+
+  <td><%= f.radio_button(:male, true) %>
+  <%= f.label(:gender_male, "Male")%></td>
+  <td><%= f.radio_button(:male, false) %>
+  <%= f.label(:gender_male, "Female")%></td>
+</tr><tr>
+
+  <td><%= f.label :age%></td>
+  <td><%= f.number_field :age%></td>
+</tr><tr>
+
+  <td><%= f.label :weight%></td>
+  <td><%= f.number_field :weight%></td>
+</tr><tr>
+
+  <td><%= f.label :target_calories%></td>
+  <td><%= f.number_field :target%></td>
+</tr><tr>
+
+  <td><%= f.label :height_in_inches%></td>
+  <td><%= f.number_field :height%></td>
+</tr><tr>
+
+  <td><%= f.label :goal_weight%></td>
+  <td><%= f.number_field :goal%></td>
+</tr><tr>
+
+  <tr>
+    <td>
+
+    <%= f.submit %></td>
+</tr>
+</table>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
 <% end %>

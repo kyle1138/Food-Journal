@@ -59,7 +59,8 @@ class FoodJournalsController < ApplicationController
 
       if params[:date]
         @food.update(date: Date.parse(params[:date]).noon)
-        redirect_to '/food_journals?date=' + Date.parse(params[:date]).to_s
+        render :file => "layouts/_food", :layout => false
+        # redirect_to '/food_journals?date=' + Date.parse(params[:date]).to_s
       else
         @the_date = Date.today
         @food.update(date: @the_date)
@@ -81,7 +82,7 @@ class FoodJournalsController < ApplicationController
 
   private
     def food_params
-      params.require(:food_journal).permit(:food , :qty, :cals, :fat, :carbs, :protein, :user_id )
+      params.require(:food_journal).permit(:food , :qty, :cals, :fat, :carbs, :protein, :user_id ,)
     end
 
 

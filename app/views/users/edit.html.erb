@@ -1,4 +1,3 @@
-<em>users show.html.erb</em>
 
 
 <script>
@@ -37,8 +36,9 @@ var user = <%= @user.id %>;
   <br>
   <%= f.submit %>
 <% end %>
-
+<br>
+<%= link_to 'main',  "/" %>
 
 <%= render "layouts/food" %>
-
+<br>
 <h3><%=@user.handle%> id: <%=@user.id%></h3>

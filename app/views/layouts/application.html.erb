@@ -22,12 +22,15 @@
 
 
 <% if session[:user_id] %>
-<h3><%= @user.handle %></h3>
+<h3>user: <%= @user.handle %></h3>
 <%= link_to 'profile', edit_user_path(@user) if @user%>
   <form method="POST" action="/session">
     <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
     <input name="_method" value="DELETE" type="hidden">
 <button>Sign Out</button>
+<div id="title">
+
+<span>FOOD IN GRAMS</span></div>
 <br>
 </form>
 <% else %>
@@ -52,7 +55,6 @@ Already a member?
 <% end %>
 </header>
 
-  <em>layout application.html.erb</em>
   <hr>
 <%= yield %>
 

@@ -118,7 +118,7 @@ var urlTwo = "?item_type=3&results=0%3A20&cal_min=0&cal_max=5000&fields=item_nam
 width = 400,
 height = 400,
 radius = 200;
-
+// appends the pie chart on load
 var color = d3.scale.ordinal()
 .range(["#98abc5", "#a05d56","#ff8c00" , "#aade99"]);
 

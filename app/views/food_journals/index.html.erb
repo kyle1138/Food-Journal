@@ -1,9 +1,11 @@
-<em>food_journals index.html.erb</em>
+
 
 <h2>Food Journal for <%= @the_date.strftime("%m/%d/%Y") %> </h2>
 <br>
 
-
+<%= link_to 'previous day',  food_journals_path + '?date=' + @the_date.prev_day.to_s%>
+<%= link_to 'next day',  food_journals_path + '?date=' + @the_date.next_day.to_s%>
+<br>
 <div id="foodReceived">
 <%= render "layouts/food" %>
 </div>
@@ -11,7 +13,31 @@
 <br>
 
 
-<input id="foodToFind" placeholder="food item"/>
+<div id="side">
+
+
+  <div id="menuContainer">
+    <input id="foodToFind" placeholder="food item"/>
+      <button id="get"> SEARCH</button>
+    <ul id="menu">
+
+    </ul>
+  </div>
+
+
+    Amount in grams<input type="number" id="qty" placeholder="0" min="1">
+    <button id="create">click to add this food to your diary</button>
+    <div id="nutrionalInfo">
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- <input id="foodToFind" placeholder="food item"/>
   <button id="get"> Find </button>
   <div id="menuContaier">
     <ul id="menu">
@@ -26,10 +52,8 @@
 </div>
 Amount in grams<input type="number" id="qty" placeholder="0" min="0">
 <button id="create">click to add this food to your diary</button>
-</div>
-<%= link_to 'previous day',  food_journals_path + '?date=' + @the_date.prev_day.to_s%>
-<%= link_to 'next day',  food_journals_path + '?date=' + @the_date.next_day.to_s%>
-<br>
+</div> -->
+
 <%= link_to 'main',  "/" %>
 <br>
 <span id="dateSpan"><%= @the_date%></span>

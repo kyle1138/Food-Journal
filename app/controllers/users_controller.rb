@@ -12,7 +12,6 @@ class UsersController < ApplicationController
   end
 
   def index
-
     @user = User.find_by(id: session[:user_id])
     @foods = FoodJournal.where(:user_id => session[:user_id], date: Date.today.beginning_of_day..Date.today.end_of_day) if @user
     @the_date = Date.today;
@@ -22,7 +21,7 @@ class UsersController < ApplicationController
 
 
   def new
-    if session
+    if session[:user_id]
       redirect_to '/'
     end
     @user = User.new
@@ -31,7 +30,11 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     session[:user_id] = @user.id
-    redirect_to '/'
+    if @user.save
+      redirect_to user_path
+    else
+      render :new
+    end
   end
 
 
@@ -63,7 +66,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:handle, :email, :password, :male , :age , :weight, :target, :height)
+      params.require(:user).permit(:handle, :email, :password, :male , :age , :weight, :target, :height, :goal)
     end
 
 

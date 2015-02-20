@@ -13,6 +13,30 @@
  *= require_tree .
  *= require_self
  */
+html{
+  width:100%;
+}
+ a {
+     text-decoration: none;
+     color: "white"
+ }
+ button {
+    background: #327828;
+
+    padding: 2px 4px;
+    color: white;
+    font-size: 12px;
+    font-family: Helvetica, Arial, Sans-Serif;
+    text-decoration: none;
+    vertical-align: middle;
+    }
+ button:hover {
+    background: #28597a;
+    color: #ffffff;
+    }
+ button:active {
+    background: #ffffff;
+    }
 
  body{
    background:#fefefe url('cell-blue.jpg');
@@ -20,11 +44,23 @@
    font-size:14px;
  }
  div{
-   display: block;
+   display: inline-block;
    float: left;
  }
 
+header{
+  background: #292;
+  color: white;
+  width:100%;
 
+}
+
+input{
+  border: 1px solid #ccc;
+}
+form{
+  padding:10px;
+}
 
  table.gridtable {
    font-family: arial,sans-serif;
@@ -50,7 +86,10 @@
    border-style: solid;
    border-color: #ffffff;
  }
-
+ table td
+ {
+   width: 200px;
+ }
  #menuContainer{
    height: 300px;
    width: 300px;
@@ -68,7 +107,7 @@
    float: down;
  }
  ul{
-   background:#dceeee;
+
    border-width: 0px 1px;
    padding: 8px;
    border-style: solid;
@@ -80,4 +119,24 @@
    font-size:14px;
 
 
+ }
+
+ #foodReceived{
+   width:100%
+ }
+
+ #foods{
+   width:90%;
+   margin: 0 auto;
+ }
+ #side{
+   width:350px;
+
+ }
+ #title{
+   color: red;
+   width:600px;
+   float:right;
+   position:relative;
+   top:-555
  }
