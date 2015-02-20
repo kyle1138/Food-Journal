@@ -160,7 +160,7 @@ create.addEventListener("click" , function(){
   xhr.open("POST" , url);
   xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhr.addEventListener("load" , function(){
-    foodReceived.innerHTML = '';
+    
     foodReceived.innerHTML = xhr.responseText;
 
 

@@ -55,9 +55,7 @@
       <td>
         <%= food.carbs %>
       </td>
-      <td>
-        <%= link_to 'update qty' , edit_food_journal_path(food)%>
-      </td>
+      
       <td>
         <%= link_to 'delete entry' , food_journal_path(food) + '?date=' + @the_date.to_s , method: :delete %>
       </td>

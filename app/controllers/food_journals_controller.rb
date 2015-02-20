@@ -40,6 +40,7 @@ class FoodJournalsController < ApplicationController
   def destroy
     @food = FoodJournal.find_by(id: params[:id])
     @food.destroy
+    @the_date = Date.parse(params[:date])
     if params[:date] != ''
       @the_date = Date.parse(params[:date])
       redirect_to '/food_journals?date=' + @the_date.to_s
@@ -59,6 +60,7 @@ class FoodJournalsController < ApplicationController
 
       if params[:date]
         @food.update(date: Date.parse(params[:date]).noon)
+        @foods = FoodJournal.where(:user_id => session[:user_id], date: Date.parse(params[:date]).beginning_of_day..Date.parse(params[:date]).end_of_day)
         render :file => "layouts/_food", :layout => false
         # redirect_to '/food_journals?date=' + Date.parse(params[:date]).to_s
       else
