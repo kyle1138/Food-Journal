@@ -30,7 +30,7 @@ get.addEventListener("click" , function(){
   console.log(item);
   var railsUrl = "/food_journals/5?food=" + item;
   var url = urlOne + item + urlTwo;
-  xhr.open("GET" , url);
+  xhr.open("GET" , railsUrl);
   xhr.addEventListener("load" , function(){
     var menuCounter = 0;
     menu.innerHTML = "";
