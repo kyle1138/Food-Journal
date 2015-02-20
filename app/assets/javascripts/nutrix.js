@@ -101,7 +101,7 @@ get.addEventListener("click" , function(){
 
         })
         // remove this line its for testing the api on do
-        nInfo.innerHTML = res;
+        // nInfo.innerHTML = res;
         menuCounter = menuCounter + 1;
       }
       })
