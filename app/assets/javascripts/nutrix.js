@@ -30,7 +30,7 @@ get.addEventListener("click" , function(){
   console.log(item);
   var railsUrl = "/food_journals/5?food=" + item;
   var url = urlOne + item + urlTwo;
-  xhr.open("GET" , railsUrl);
+  xhr.open("GET" , url);
   xhr.addEventListener("load" , function(){
     var menuCounter = 0;
     menu.innerHTML = "";
@@ -160,7 +160,7 @@ create.addEventListener("click" , function(){
   xhr.open("POST" , url);
   xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhr.addEventListener("load" , function(){
-    
+
     foodReceived.innerHTML = xhr.responseText;
 
 

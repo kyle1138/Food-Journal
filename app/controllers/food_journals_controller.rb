@@ -71,7 +71,9 @@ class FoodJournalsController < ApplicationController
       end
 
     else
-      render status: 400, nothing: true
+      @foods = FoodJournal.where(:user_id => session[:user_id], date: Date.today.beginning_of_day..Date.today.end_of_day)
+      render :file => "layouts/_food", :layout => false
+      
     end
   end
 
