@@ -100,7 +100,8 @@ get.addEventListener("click" , function(){
         .style("fill", function(d,i) { return color(i); });
 
         })
-
+        // remove this line its for testing the api on do
+        nInfo.innerHTML = res;
         menuCounter = menuCounter + 1;
       }
       })
