@@ -3,7 +3,7 @@ class FoodJournalsController < ApplicationController
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
   skip_before_filter  :verify_authenticity_token
-
+  require 'httparty'
   def index
     @display_date = Date.parse(params[:date]).strftime("%m/%d/%Y")
     @the_date = Date.parse(params[:date])
