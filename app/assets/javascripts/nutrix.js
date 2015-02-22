@@ -29,7 +29,7 @@ get.addEventListener("click" , function(){
   var item = encodeURI(foodToFind.value);
   // itemRequest["query"] = item;
   console.log(item);
-  var railsUrl = "/food_journals/5?food=" + item;
+  var railsUrl = "/food_journals/1?food=" + item;
   var url = urlOne + item + urlTwo;
   xhr.open("GET" , railsUrl);
   xhr.addEventListener("load" , function(){
