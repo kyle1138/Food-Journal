@@ -14,6 +14,7 @@ var nInfo = document.getElementById("nutrionalInfo");
 var foodReceived = document.getElementById("foodReceived");
 var qtyBox = document.getElementById("qty");
 var dateSpan = document.getElementById("dateSpan");
+var test = document.getElementById("test");
 
 
 
@@ -33,6 +34,7 @@ get.addEventListener("click" , function(){
   xhr.open("GET" , railsUrl);
   xhr.addEventListener("load" , function(){
     console.log(xhr.responseText);
+    test.innerHTML = xhr.responseText;
     var menuCounter = 0;
     menu.innerHTML = "";
     nInfo.innerHTML = "";
