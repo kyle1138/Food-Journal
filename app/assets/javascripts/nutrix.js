@@ -32,6 +32,7 @@ get.addEventListener("click" , function(){
   var url = urlOne + item + urlTwo;
   xhr.open("GET" , railsUrl);
   xhr.addEventListener("load" , function(){
+    console.log(xhr.responseText);
     var menuCounter = 0;
     menu.innerHTML = "";
     nInfo.innerHTML = "";
@@ -111,7 +112,7 @@ get.addEventListener("click" , function(){
   xhr.send();
 
 })
-
+https://api.nutritionix.com/v1_1/search/nut?item_type=3&results=0%3A20&cal_min=0&cal_max=5000&fields=item_name%2Cnf_dietary_fiber%2Cbrand_name%2Cnf_calories%2Cnf_serving_size_qty%2Cnf_serving_size_unit%2Cnf_total_fat%2Cnf_total_carbohydrate%2Cnf_protein%2Cnf_serving_weight_grams%2Citem_id%2Cbrand_id&appId=bdcc47ce&appKey=e53cc81b43727bf30f6ffb0a54ab80a8
 
 var urlOne = "https://api.nutritionix.com/v1_1/search/";
 var urlTwo = "?item_type=3&results=0%3A20&cal_min=0&cal_max=5000&fields=item_name%2Cnf_dietary_fiber%2Cbrand_name%2Cnf_calories%2Cnf_serving_size_qty%2Cnf_serving_size_unit%2Cnf_total_fat%2Cnf_total_carbohydrate%2Cnf_protein%2Cnf_serving_weight_grams%2Citem_id%2Cbrand_id&appId=bdcc47ce&appKey=e53cc81b43727bf30f6ffb0a54ab80a8"

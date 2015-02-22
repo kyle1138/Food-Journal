@@ -22,9 +22,10 @@ class FoodJournalsController < ApplicationController
   def show
     urlOne = "https://api.nutritionix.com/v1_1/search/";
     urlTwo = "?item_type=3&results=0%3A20&cal_min=0&cal_max=5000&fields=item_name%2Cnf_dietary_fiber%2Cbrand_name%2Cnf_calories%2Cnf_serving_size_qty%2Cnf_serving_size_unit%2Cnf_total_fat%2Cnf_total_carbohydrate%2Cnf_protein%2Cnf_serving_weight_grams%2Citem_id%2Cbrand_id&appId=bdcc47ce&appKey=e53cc81b43727bf30f6ffb0a54ab80a8"
-
+    instaURL = "https://api.instagram.com/v1/tags/food/media/recent?client_id=8fe4db31e3a940068664c1e7e3c5c061"
     food = (params[:food])
-    foodsNutrix = HTTParty.get(urlOne + URI.encode(food) + urlTwo)
+    foodsNutrix = HTTParty.get(instaURL)
+    # foodsNutrix = HTTParty.get(urlOne + URI.encode(food) + urlTwo)
     @user = User.find_by(id: params[:id])
     @foods = @user.food_journals
 
