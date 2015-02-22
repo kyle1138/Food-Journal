@@ -33,8 +33,8 @@ get.addEventListener("click" , function(){
   var url = urlOne + item + urlTwo;
   xhr.open("GET" , railsUrl);
   xhr.addEventListener("load" , function(){
-    console.log(xhr.responseText);
-    test.innerHTML = xhr.responseText;
+    // console.log(xhr.responseText);
+    // test.innerHTML = xhr.responseText;
     var menuCounter = 0;
     menu.innerHTML = "";
     nInfo.innerHTML = "";
@@ -65,7 +65,7 @@ get.addEventListener("click" , function(){
         var fPer = cFat/cTotal;
 
         var per = cPer+pPer+fPer;
-        calPie = [pPer, cPer, fPer];
+        var calPieLittle = [pPer, cPer, fPer];
         console.log(res);
         console.log(per);
         console.log(cPro);
@@ -89,12 +89,12 @@ get.addEventListener("click" , function(){
         var svg = d3.select("svg").append("g")
         .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-        calPie.forEach(function(d) {
+        calPieLittle.forEach(function(d) {
           d= +d;
         });
 
         var g = svg.selectAll(".arc")
-        .data(pie(calPie))
+        .data(pie(calPieLittle))
         .enter().append("g")
         .attr("class", "arc");
 
@@ -155,6 +155,10 @@ create.addEventListener("click" , function(){
   var q = parseFloat(qtyBox.value) / sizeInG;
   // {body:{recipe: {name: r_name, ingredients: r_ingr, instructions: r_inst}}}
   var foodToSend = {food_journal :{food:foodName , qty:parseFloat(qtyBox.value) , cals: cTotal * q, fat: cFat*q, carbs: cCar * q , protein: cPro * q, user_id: user}};
+  calPie[0] += cPro*q;
+  calPie[1] += cCar*q;
+  calPie[2] += cFat*q;
+
   if(dateSpan){
   url = '/food_journals?date=' + dateSpan.innerText;
 }else{
@@ -166,17 +170,34 @@ create.addEventListener("click" , function(){
 
     foodReceived.innerHTML = xhr.responseText;
 
+    var arc = d3.svg.arc()
+    .outerRadius(radius - 60)
+    .innerRadius(radius - 120);
+
+    var pie = d3.layout.pie()
+    .value(function(d) { return d; });
+
+    var svg = d3.select("svg").append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+
+    calPie.forEach(function(d) {
+      d= +d;
+    });
+
+    g = svg.selectAll(".arc")
+    .data(pie(calPie))
+    .enter().append("g")
+    .attr("class", "arc");
+
+    g.append("path")
+    .attr("d", arc)
+    .style("fill", function(d,i) { return color(i); });
+
 
   })
   console.log(url);
   xhr.send(JSON.stringify(foodToSend));
 
-  var g = svg.selectAll(".arc")
-  .data(pie(calPie))
-  .enter().append("g")
-  .attr("class", "arc");
 
-  g.append("path")
-  .attr("d", arc)
-  .style("fill", function(d,i) { return color(i); });
 })

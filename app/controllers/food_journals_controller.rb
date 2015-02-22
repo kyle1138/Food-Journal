@@ -41,7 +41,7 @@ class FoodJournalsController < ApplicationController
   def destroy
     @food = FoodJournal.find_by(id: params[:id])
     @food.destroy
-    @the_date = Date.parse(params[:date])
+    
     if params[:date] != ''
       @the_date = Date.parse(params[:date])
       redirect_to '/food_journals?date=' + @the_date.to_s

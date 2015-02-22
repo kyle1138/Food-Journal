@@ -55,7 +55,7 @@
       <td>
         <%= food.carbs %>
       </td>
-      
+
       <td>
         <%= link_to 'delete entry' , food_journal_path(food) + '?date=' + @the_date.to_s , method: :delete %>
       </td>
@@ -130,7 +130,26 @@ end%>
 
   </table>
   <br>
+<script charset="utf-8">
 
 
-
+  <%
+  total_cals = 0
+  total_fat_cals = 0
+  total_carb_cals = 0
+  total_pro_cals = 0
+  if @foods
+    @foods.each do |food|
+      total_fat_cals += food.fat
+      total_carb_cals += food.carbs
+      total_pro_cals += food.protein
+      total_cals += food.cals
+    end
+  end
+  %>
+  var calPie = [0,0,0,100];
+  <%if total_cals > 0 %>
+  calPie = [<%= total_pro_cals %>,<%= total_carb_cals %>,<%= total_fat_cals %>];
+  <% end %>
+  </script>
 </div>
