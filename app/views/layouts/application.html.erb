@@ -12,17 +12,9 @@
   var user = <%= @user.id %>;
 
   <% end %>
-  var calPie = [0,0,0,33]
+
   </script>
-  <style>
-  body{
-    background:#fefefe;
-    font-family: verdana,arial,sans-serif;
-    font-size:14px;
-    width: 100%;
-    height: 100%;
-  }
-  </style>
+
 </head>
 
 <body>
@@ -69,9 +61,11 @@ Already a member?
 
 <div id="title">
 
-<span>FOOD IN GRAMS</span></div>
+<span>FOOD IN GRAMS</span>
+
 </div>
 </div>
+
   <hr>
 <%= yield %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
