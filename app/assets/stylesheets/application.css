@@ -88,7 +88,7 @@ form{
    color: #efefef;
  }
  table.gridtable td {
-   background:#e0e5d1;
+   background:#f0f5e1;
    border-width: 0px 1px;
    padding: 8px;
    border-style: solid;
@@ -105,7 +105,7 @@ form{
    width: 95%;
    overflow:auto;
    border:2px solid #aaa;
-   background-color: #e0e5d1;
+   background-color: #f0f5e1;
    border-width: 1px;
    padding: 8px;
    border-style: solid;
