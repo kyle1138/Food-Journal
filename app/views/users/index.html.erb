@@ -1,4 +1,6 @@
 
+<div id="indexDiv">
+
 <script>
 
 <%
@@ -22,6 +24,8 @@ calPie = [<%= total_pro_cals %>,<%= total_carb_cals %>,<%= total_fat_cals %>];
 
 </script>
 
+
+
 <div id="side">
 
 <span>Search for the food you wish to add</span><br>
@@ -42,11 +46,15 @@ calPie = [<%= total_pro_cals %>,<%= total_carb_cals %>,<%= total_fat_cals %>];
     </div>
 </div>
 
+
+
+
+
     <div id="status">
 
-      <h3>Daily calorie goal: <%= @user.target if @user%></h3>
-      <h3>Today's caloric intake: <%=total_cals%></h3>
-      <h3>remaining calories: <%= @user.target - total_cals if @user%></h3>
+      Daily calorie goal: <%= @user.target if @user%><br>
+      Today's caloric intake: <%=total_cals%><br>
+      remaining calories: <%= @user.target - total_cals if @user%>
 
     </div>
   <div id="svgContainer">
@@ -84,7 +92,8 @@ calPie = [<%= total_pro_cals %>,<%= total_carb_cals %>,<%= total_fat_cals %>];
 <div id="bottom">
 
 
-<%= link_to 'food diary', food_journals_path + '?date=' + Date.today.to_s if @user %>
+  <%= link_to 'Food Diary', food_journals_path + '?date=' + Date.today.to_s if @user %>
 <br>
-<%= link_to 'user profile', edit_user_path(@user) if @user%>
+<%= link_to 'User Profile', edit_user_path(@user) if @user%>
+</div>
 </div>

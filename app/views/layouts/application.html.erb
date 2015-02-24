@@ -18,45 +18,69 @@
 </head>
 
 <body>
-<div id="test">
 
-
-  </div>
   <div id="header">
 
-    <div>
+    <div id>
 <% if session[:user_id] %>
-<span>user: <%= @user.handle %></span>
-<%= link_to 'profile', edit_user_path(@user) if @user%>
+  <span id="user">User: <%= @user.handle %></span><br>
+  <%= link_to 'Profile', edit_user_path(@user) if @user%><br>
+  <%= link_to 'Food Diary', food_journals_path + '?date=' + Date.today.to_s if @user %>
 
 
-
-  <form method="POST" action="/session">
-    <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
-    <input name="_method" value="DELETE" type="hidden">
-<button>Sign Out</button>
-</div>
-<br>
-</form>
+    <form method="POST" action="/session">
+      <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+      <input name="_method" value="DELETE" type="hidden">
+  <button>Sign Out</button>
+  </div>
+  <br>
+  </form>
 <% else %>
-Already a member?
-<form action = "/session" method = "POST">
-  <label for = "username">
-    Username
-  </label>
-  <input name = "username" type = "text">
-  <label for = "password">
-    Password:
-  </label>
-  <input name = "password" type = "password">
-  <input name = "authenticity_token" value = "<%= form_authenticity_token() %>"
-    type = "hidden">
-<button>Sign In</button><br>
+  Already a member?<br>
+  <table>
 
 
+    <form action = "/session" method = "POST">
+      <tr>
+        <td>
+          <label for = "username">
+            Username
+          </label>
+      </td>
+      <td>
+        <input name = "username" type = "text">
+      </td>
+    </tr>
+    <tr>
 
-</form>
-<%= link_to 'Register a new user', new_user_path %>
+      <td>
+
+        <label for = "password">
+          Password:
+        </label>
+      </td>
+      <td>
+
+
+        <input name = "password" type = "password">
+        <input name = "authenticity_token" value = "<%= form_authenticity_token() %>"
+          type = "hidden">
+      </td>
+    </tr>
+      <tr>
+
+
+      <td>
+        <button>Sign In</button><br>
+      </td>
+    </tr>
+
+  </table>
+
+
+  </form>
+  <%= link_to 'Register a new user', new_user_path %>
+</div>
 <% end %>
 
 <div id="title">
@@ -64,9 +88,12 @@ Already a member?
 <span>FOOD IN GRAMS</span>
 
 </div>
-</div>
 
-  <hr>
+</div>
+<div id="seperate">
+
+</div>
+<hr>
 <%= yield %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>

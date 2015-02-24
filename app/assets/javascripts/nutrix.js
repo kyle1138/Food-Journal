@@ -96,7 +96,8 @@ get.addEventListener("click" , function(){
 
         g.append("path")
         .attr("d", arc)
-        .style("fill", function(d,i) { return color(i); });
+        .style("fill", function(d,i) { return color(i); })
+        .style("stroke", "#cbcbbb");
 
 
 
@@ -133,10 +134,12 @@ var arc = d3.svg.arc()
 .outerRadius(radius - 60)
 .innerRadius(radius - 120);
 
-var svg = d3.select("svg").append("g")
-.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
 var pieAppend = function(array){
+
+  var svg = d3.select("svg").append("g")
+  .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
 
   array.forEach(function(d) {
     d= +d;
@@ -149,7 +152,8 @@ var pieAppend = function(array){
 
   g.append("path")
   .attr("d", arc)
-  .style("fill", function(d,i) { return color(i); });
+  .style("fill", function(d,i) { return color(i); })
+  .style("stroke", "#cbcbbb");
 
 }
 

@@ -15,7 +15,6 @@
  */
 html{
   width:100%;
-  padding: 0;
 }
 a {
  color: #115111;
@@ -24,27 +23,24 @@ a {
 }
  button {
     background: #327828;
-
     padding: 3px 5px;
     color: white;
     font-size: 12px;
     font-family: Helvetica, Arial, Sans-Serif;
     text-decoration: none;
     vertical-align: middle;
-
-
-  width: 130px;
-  height: 22px;
-  padding: 0;
-  color: white;
-  text-align: center;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-  background: #292;
-  border: 0;
-  border-bottom: 2px solid #171;
+    width: 130px;
+    height: 22px;
+    padding: 0;
+    color: white;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    background: #292;
+    border: 0;
+    border-bottom: 2px solid #171;
 
 }
-    }
+
  button:hover {
     background: #292;
     color: #ffffff;
@@ -60,22 +56,14 @@ a {
  }
  div{
    display: block;
-   float: left;
+   float:left;
  }
 
-#header{
-  background: #88a75c;
-  /*background: #292;*/
-  color: white;
-  width:100%;
-
-
-
-}
 
 input{
   border: 1px solid #ccc;
 }
+
 form{
   padding:10px;
   width:400px;
@@ -100,31 +88,33 @@ form{
    color: #efefef;
  }
  table.gridtable td {
-   background:#f0f5e1;
+   background:#e0e5d1;
    border-width: 0px 1px;
    padding: 8px;
    border-style: solid;
    border-color: #ffffff;
  }
+
  table td
  {
    width: 200px;
  }
+
  #menuContainer{
    height: 300px;
    width: 95%;
    overflow:auto;
    border:2px solid #aaa;
-   background-color: #f0f5e1;
+   background-color: #e0e5d1;
    border-width: 1px;
    padding: 8px;
    border-style: solid;
    border-color: #ccc;
 
  }
- #bttm{
-   float: down;
- }
+
+
+
  ul{
 
    border-width: 0px 1px;
@@ -140,6 +130,16 @@ form{
 
  }
 
+
+ #header{
+   background: #88a75c;
+   color: white;
+   width:100%;
+   height:8em;
+
+
+ }
+
  #foodReceived{
    width:100%
  }
@@ -148,27 +148,59 @@ form{
    width:90%;
    margin: 0 auto;
  }
+
  #side{
    width:350px;
-   border: 1px solid #bbb;
+   border: 1px solid #eee;
    padding:5px;
-   align: center;
+   text-align: center;
+   float:left;
+   position:static;
+   /*position:relative;
+   right:100px;
+   top:8em;*/
 
  }
+
  #title{
    color: white;
-   font-size:38px;
-   width:350px;
-   height:50px;
+   font-size:40px;
+   width:380px;
+   height:70px;
    float:right;
- }
- #status{
+   font-weight:bold;
+
 
  }
+
+ #status{
+   font-size: 18px;
+   color:black;
+   width:18%;
+
+ }
+
  #nutrionalInfo{
-  min-height: 110px;
+  min-height: 120px;
   display: block;
  }
+
  #foodToFind{
    width:60%
+ }
+
+ #fdlink{
+   float:left;
+   display:inline;
+   width:100%;
+   text-align:center;
+
+ }
+
+ #user{
+   font-size: 16px;
+ }
+
+ #body{
+   width:100%
  }
