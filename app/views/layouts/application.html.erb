@@ -37,46 +37,26 @@
   </form>
 <% else %>
   Already a member?<br>
-  <table>
+
 
 
     <form action = "/session" method = "POST">
-      <tr>
-        <td>
-          <label for = "username">
-            Username
-          </label>
-      </td>
-      <td>
-        <input name = "username" type = "text">
-      </td>
-    </tr>
-    <tr>
 
-      <td>
+          <!-- <label for = "username">
+            Username:
+          </label> -->
 
-        <label for = "password">
+        <input name = "username" type = "text" placeholder = "username">
+
+        <!-- <label for = "password">
           Password:
-        </label>
-      </td>
-      <td>
+        </label> -->
 
-
-        <input name = "password" type = "password">
+        <input name = "password" type = "password" placeholder = "password">
         <input name = "authenticity_token" value = "<%= form_authenticity_token() %>"
           type = "hidden">
-      </td>
-    </tr>
-      <tr>
 
-
-      <td>
         <button>Sign In</button><br>
-      </td>
-    </tr>
-
-  </table>
-
 
   </form>
   <%= link_to 'Register a new user', new_user_path %>
