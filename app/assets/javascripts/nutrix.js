@@ -189,6 +189,7 @@ create.addEventListener("click" , function(){
   })
   console.log(url);
   xhr.send(JSON.stringify(foodToSend));
+  qtyBox.value = 0;
 
 
 })

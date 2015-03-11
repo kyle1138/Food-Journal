@@ -22,7 +22,7 @@
   <div id="header">
 
     <div id>
-<% if session[:user_id] %>
+<% if session[:user_id] && @user %>
   <span id="user">User: <%= @user.handle %></span><br>
   <%= link_to 'Profile', edit_user_path(@user) if @user%><br>
   <%= link_to 'Food Diary', food_journals_path + '?date=' + Date.today.to_s if @user %>

@@ -7,6 +7,12 @@ Rails.application.routes.draw do
   # get '/register' => 'users#new'
   post '/session' => 'session#create'
   delete '/session' => 'session#destroy'
+
+
+  get '/about', :to => redirect('/about.html')
+
+
+  get ':action' => 'static#:action'
   #
   # get '/secret' => 'secret#show'
   # The priority is based upon order of creation: first created -> highest priority.

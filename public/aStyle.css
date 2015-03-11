@@ -1,0 +1,129 @@
+body{
+  font-family: 'Oswald', sans-serif;
+  margin: auto;
+  background-color: #ccc;
+}
+.bigDiv{
+  width: 100%;
+  display: block-inline;
+
+}
+.cheese{
+  font-family: 'Alfa Slab One', sans-serif;
+  display:block;
+  /*text-shadow: 3px 3px 4px #ff1100;*/
+  position: absolute;
+  top: 24;
+  /*left: 440;*/
+  visibility: hidden;
+  color: yellow;
+
+}
+
+#theHeader{
+
+  color: #ffffff;
+  /*text-shadow: 2px 2px 4px #0000ff;*/
+  text-align: center;
+  background: url("TopBar2.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 210px;
+  position:relative;
+  min-width: 870px;
+
+}
+
+#theNav{
+
+  background-color: yellow;
+  color: black;
+  font-size:22px;
+  height:40;
+
+}
+
+#main{
+  color: black;
+  width:85%;
+  max-width: 800px;
+  height:510px;
+  margin: 10 auto;
+  padding-top:15px;
+
+
+}
+
+#bio{
+  float: left;
+  width: 400px;
+  height:200px;
+  font-family: sans-serif;
+  margin: auto 0;
+  font-size:20px;
+  padding-right:40px;
+}
+
+#Description{
+  width: 95%;
+  height:130px;
+  font-family: sans-serif;
+  margin: 0 auto;
+  font-size:18px;
+}
+
+#portrait{
+  /*float:left;*/
+  width:350;
+  border-radius: 3px;
+  margin:  10 auto;
+
+}
+
+#snap{
+  /*float:left;*/
+  border-radius: 3px;
+  margin: auto 0;
+  width: 100%;
+
+}
+
+#bookSnap{
+  /*float:left;*/
+  border-radius: 3px;
+  margin: 0 auto;
+  width: 400px;
+  display: block;
+
+}
+
+#contact{
+  /*float:left;*/
+  margin: 50 auto;
+  width: 500px;
+  display: block;
+  padding-left: 102;
+
+}
+#contact ul{
+  list-style-type: none;
+  font-size:24px;
+}
+#theNav ul{
+  width: 790;
+  margin: 0 auto;
+}
+
+#theNav li {
+  display: inline;
+  margin: auto 20px;
+}
+
+
+
+a:visited {
+  color: black;
+}
+a:link{
+  color: black;
+}
